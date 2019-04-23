@@ -1,0 +1,48 @@
+# mPraat toolbox for Matlab
+
+mPraat toolbox for Matlab constitutes an interface between the most popular software for phonetic analyses, Praat, and Matlab.
+
+Version 1.0.6.
+
+For demonstration, see [html/mDemo.html](http://htmlpreview.github.com/?https://github.com/bbTomas/mPraat/blob/master/html/mDemo.html)
+
+See also: [rPraat package](https://github.com/bbTomas/rPraat) for R.
+
+rPraat and mPraat homepage: [http://fu.ff.cuni.cz/praat/](http://fu.ff.cuni.cz/praat/)
+
+## Installation
+
+[Download mPraat: mPraat-master.zip](https://github.com/bbTomas/mPraat/archive/master.zip)
+
+To install mPraat, just unzip all files to any directory of your choice and Set Path (in Matlab) to this directory.
+
+
+## How to cite this toolbox?
+We have invested a lot of time and effort in creating mPraat toolbox / rPraat package, please cite it when using it for data analysis.
+
+> Bořil, T., & Skarnitzl, R. (2016). Tools rPraat and mPraat. In P. Sojka, A. Horák, I. Kopeček, & K. Pala (Eds.), Text, Speech, and Dialogue (pp. 367–374). Springer International Publishing.
+
+[Download Tools rPraat and mPraat manuscript .pdf](http://fu.ff.cuni.cz/praat/boril_skarnitzl_2016_Tools_rPraat_and_mPraat_[manuscript].pdf)
+
+The final publication is available at Springer via [DOI 10.1007/978-3-319-45510-5_42](http://dx.doi.org/10.1007/978-3-319-45510-5_42)
+
+
+[Download BibTeX reference mpraatrpraat2016.bib](http://fu.ff.cuni.cz/praat/mpraatrpraat2016.bib)
+
+## What is new
+
+v1.0.6: pt.cut(), pt.cut0(), pt.interpolate(), pt.Hz2ST(), pt.legendre(), pt.legendreSynth(), pt.legendreDemo()
+
+
+## License
+
+License: MIT
+
+Copyright (c) 2016 Tomáš Bořil, borilt@gmail.com
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

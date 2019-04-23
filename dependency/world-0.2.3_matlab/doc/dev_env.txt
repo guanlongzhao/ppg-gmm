@@ -1,0 +1,7 @@
+OS 	: Windows 10 Pro 64 bit
+CPU 	: Intel(R) Core i7-7500U 2.7 GHz 2.90 GHz
+RAM 	: 16.0 GB
+
+Software
+Mathworks MATLAB 9.1.0.441655 (R2016b) + Signal processing toolbox.
+
