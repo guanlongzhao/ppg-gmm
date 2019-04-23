@@ -1,5 +1,5 @@
 # SPTK MCEP Encoder and Decoder for Matlab
-I want to use SPTK's `mcep` and `mgc2sp` in Matlab on Windows, but I could not get SPTK compiled on Windows. To make my life easier, I ported those two functions to Matlab, so that's the story. I could use Linux and call the SPTK binaries from `bash`, but I just do not want to do that.
+I want to use SPTK's `mcep` and `mgc2sp` in Matlab on Windows, but I could not get SPTK compiled on Windows. To make my life easier, I ported those two functions to Matlab, so that's the story.
 
 ## Port `mcep`
 Originally I was going to implement a pure Matlab version, but after finishing half of the work I realized that the Matlab version is very slow, especially those two subroutines `freqt` and `frqtr`. So I added Matlab `mex` support to `freqt`, `frqtr`, and `theq`, and used the compiled C code directly. Eventually, the only difference between the Matlab and the C version is that the Matlab version uses its own `fft` and `ifft` functions.
@@ -28,14 +28,13 @@ Refer to the function documentation for more details.
 ## Install
 If you are familiar with Matlab `mex`, you know what to do. If you are not, please read [Matlab's documentation](https://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html).
 
-Compile all the `C` source files in this repo. I tested two compilers, `MinGW64` and `VC++ 2015`, the mex files generated using `VC++ 2015` is slightly faster.
+Compile all the `C` source files in this repository. I tested two compilers, `MinGW64` and `VC++ 2015`, the mex files generated using `VC++ 2015` is slightly faster.
 
 ## Notes
 - All mex functions do not have input validation, so use at your own risk, may break your Matlab XD
 - I only tested those functions in Matlab R2016a (Windows version), should work on other OS though
-- I also included precompiled mex files here, those are compiled using `VC++ 2015` in Matlab R2016a, you may or may not be able to use them directly
 - An initial test shows that this implementation gives almost the same output as SPTK's
 
 Guanlong Zhao (gzhao@tamu.edu)
 
-###### Mon Apr 22 14:07:57 CDT 2019
+###### Tue Apr 23 18:47:11 CDT 2019
