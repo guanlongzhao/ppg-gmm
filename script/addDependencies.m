@@ -27,5 +27,6 @@ addpath(fullfile(rootDir, 'function'));
 addpath(fullfile(rootDir, 'script'));
 addpath(fullfile(rootDir, 'test'));
 
-% Kaldi uses this C++ library
-setenv('LD_PRELOAD', '/usr/lib64/libstdc++.so.6')
+% Activate this line if Kaldi uses a C++ library that is different than the
+% Matlab default. You may also need to change the path to the C++ library
+% setenv('LD_PRELOAD', '/usr/lib64/libstdc++.so.6')
