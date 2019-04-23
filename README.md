@@ -1,10 +1,9 @@
-# Using phonetic posteriorgram based frame pairing for segmental accent conversion
-
-This repo hosts an open source implementation for the proposed accent conversion system in our TASLP submission "Using phonetic posteriorgram based frame pairing for segmental accent conversion."
+# PPG-GMM
+This repository hosts an open source implementation for the accent conversion system described in our submission to _IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)_, titled "Using Phonetic Posteriorgram Based Frame Pairing for Segmental Accent Conversion."
 
 ## System requirement
-- OS: Ubuntu 16.04 or CentOS 7.5
-- Matlab: R2016a, R2017b, or R2018a
+- OS: `Ubuntu 16.04` (tested and recommended) or `CentOS 7.5` (tested but you may run into some issues)
+- Matlab: `R2019a` (tested and recommended) or `R2016a` (tested); any versions between these two should work but not tested
 - Essentially, as long as you can install _Kaldi_, the _Montreal Forced Aligner_, and _Matlab_ on your OS, this package should work just fine
 - Fast CPU and large RAM (>=16GB) are preferred
 
@@ -23,20 +22,20 @@ mkdir temp
     - Make sure the aligner binary file is executable on your machine
 - Install `mcep-sptk-matlab`
     - Run `script/installMcepSptkMatlab.m` in Matlab
-    - Note that you need a working C/C++ compiler installed and Matlab has to be configured to use that compiler
+    - Note that you need a working C/C++ compiler installed, and Matlab has to be configured to use that compiler
     - See the [documentation](https://www.mathworks.com/help/matlab/ref/mex.html) for the `mex` function in Matlab for more details
 - Configure `kaldi-posteriorgram`
     - Set `KALDI_ROOT` in `dependency/kaldi-posteriorgram/path.sh` to the root directory of your Kaldi installation (e.g., `/home/kaldi`)
-    - Give execution permission to all `.sh` files
+    - Give execute permission to all `.sh` files. For example, `chmod u+x *.sh`
 - Configure `function/dataPrep.m`
     - Set `aligner` to the absolute path of the Montreal Forced Aligner binary (the `mfa_align` file, e.g., `/home/mfa/mfa_align`)
-    - Set `dictionary` to the absolute path of the Montreal Forced Aligner dictionary file. If you do not have one, you can download it [here](link)
+    - Set `dictionary` to the absolute path of the Montreal Forced Aligner dictionary file. If you do not have one, you can download it [here](https://psi.engr.tamu.edu/wp-content/uploads/2019/04/dictionary.txt)
     - Set `acousticModel` to the absolute path of the Montreal Forced Aligner pre-trained model (the `english.zip` file, e.g., `/home/mfa/english.zip`)
 
 ## Add to search path
 Add all dependencies (packages under `dependency`) and `function` to the Matlab search path
-- Use the Matlab GUI tool `Set Path`
-- Run `script/addDependencies.m` in Matlab, note that this will only add the dependencies for the current Matlab session
+- Use the Matlab GUI tool `Set Path`, or
+- Run `script/addDependencies.m` in Matlab, note that this will only add the dependencies to the search path of the current Matlab session
 
 ## Run tests
 - **Prepare test data [important]**: in Matlab, run the script `script/prepareFixturesForTests.m`
@@ -49,15 +48,15 @@ Add all dependencies (packages under `dependency`) and `function` to the Matlab 
 - In Matlab, run `script/demo.m`
     - This script generates a voice that sounds like the speaker in `test/data/tgt` but with the accent of the speaker in `test/data/src`
     - You will find the accent conversion syntheses under `test/data/temp/demo/ac_syntheses`
-    - The resulting syntheses will have low acoustic quality because the demo only uses 30 utterances from training
+    - The resulting syntheses will have low acoustic quality because the demo only uses 30 utterances for training
     - Some higher-quality samples we used in the paper can be found at https://guanlongzhao.github.io/demo/ppg-gmm
-- Want to work on your own data? Read and modify `script/demo.m`
+- How to apply your own data? Read and modify `script/demo.m`
 
 ## Notes
 - In the paper, we used the [TANDEM-STRAIGHT](http://www.wakayama-u.ac.jp/~kawahara/STRAIGHTadv/index_e.html) vocoder (`TandemSTRAIGHTmonolithicPackage012`) and it is not open-source. Therefore, we cannot include that package here
     - Instead, we used [WORLD](https://github.com/mmorise/World) in this implementation
-    - We kept the TANDEM-STRAIGHT related code in this repo in case you have access to `TANDEM-STRAIGHT`. Note that we used `MulticueF0v14` from [Legacy-STRAIGHT](https://github.com/HidekiKawahara/legacy_STRAIGHT) as the pitch tracker to improve performance, as noted in the paper
-- This implementation is not the original code used for the experiments in the paper, but it is a close enough re-implementation of the original system
+    - We kept the TANDEM-STRAIGHT related code in this repo in case you have access to TANDEM-STRAIGHT. Note that we used `MulticueF0v14` from [Legacy-STRAIGHT](https://github.com/HidekiKawahara/legacy_STRAIGHT) as the pitch tracker to improve the performance of TANDEM-STRAIGHT, as noted in the paper
+- This implementation is not the original experimental code used for the experiments in the paper, but it is a close re-implementation of the original system
 
 ## Running into issues?
 - In the output folder of your experiment, you will find log files named in the form of `log_[TIMESTAMP]`. Try to read the logs and see if there is anything suspicious
@@ -67,9 +66,21 @@ Add all dependencies (packages under `dependency`) and `function` to the Matlab 
         - The most probable reason is that the shell scripts under `dependency/kaldi-posteriorgram` do not have the execute permission
         - Sometimes Matlab loads a different `libstdc++` than the one that Kaldi was compiled with, and this will make all the system calls to Kaldi binaries made by Matlab to fail. The solution is to load the `libstdc++` that Kaldi uses when starting your Matlab session; see `script/addDependencies.m` for more details
     - **Why Matlab tells me that some functions are missing?**
-        - You probably did not include all the dependencies into the Matlab search path
-        - If it is a built-in Matlab function, you probably need to use a different Matlab version
-- Feel free to report an issue or initiate a pull request for any bugs you found
+        - You probably did not add all the dependencies to the Matlab search path
+        - If it is a built-in Matlab function, you probably need to use a different Matlab version or install the corresponding toolboxes (e.g., Statistics and Machine Learning Toolbox for `pdist2`, Communications Toolbox for `vec2mat`, and Parallel Computing Toolbox for `parfor`). Some of these functions have open-source solutions. For example, I found a `pdist2` function [here](https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/29004/versions/2/previews/FPS_in_image/FPS%20in%20image/Help%20Functions/SearchingMatches/pdist2.m/index.html)
+- Feel free to open an issue or initiate a pull request for any bugs you found
+
+## Citation
+Please cite the following paper if you used this system in your publication,
+
+```
+@article{zhao2019using,
+  title={Using Phonetic Posteriorgram Based Frame Pairing for Segmental Accent Conversion},
+  author={Zhao, Guanlong and Gutierrez-Osuna, Ricardo},
+  journal={Submitted to IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+  year={2019}
+}
+```
 
 ## License
 - For everything under `dependency`, please refer to their respective license terms
