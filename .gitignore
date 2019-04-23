@@ -1,0 +1,8 @@
+*.ini
+*.asv
+*.mexw64
+*.mexa64
+*.mexmaci64
+test/data/src/cache/*
+test/data/tgt/cache/*
+test/data/temp/*
