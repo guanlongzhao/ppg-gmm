@@ -7,6 +7,9 @@ This repository hosts an open source implementation for the accent conversion sy
 - Essentially, as long as you can install _Kaldi_, the _Montreal Forced Aligner_, and _Matlab_ on your OS, this package should work just fine
 - Fast CPU and large RAM (>=16GB) are preferred
 
+## Data
+The [L2-ARCTIC corpus](https://psi.engr.tamu.edu/l2-arctic-corpus/) is an excellent dataset for accent conversion tasks, and it is freely available.
+
 ## Install
 
 ### Download the source code
