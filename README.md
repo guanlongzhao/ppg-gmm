@@ -8,7 +8,8 @@ This repository hosts an open source implementation for the accent conversion sy
 - Fast CPU and large RAM (>=16GB) are preferred
 
 ## Data
-The [L2-ARCTIC corpus](https://psi.engr.tamu.edu/l2-arctic-corpus/) is an excellent dataset for accent conversion tasks, and it is freely available.
+- The [L2-ARCTIC corpus](https://psi.engr.tamu.edu/l2-arctic-corpus/) is an excellent dataset for accent conversion tasks, and it is freely available
+- The [CMU-ARCTIC corpus](http://festvox.org/cmu_arctic/) has four high-quality native English speakers
 
 ## Install
 
