@@ -1,6 +1,6 @@
-% convertF0HEQ: implement the histogram equlization postfiltering proposed
+% convertF0HEQ: implement the histogram equlization post-filtering proposed
 %  by Wu et al. in paper "Text-Independent F0 Transformation with
-%  Non-Parallel Date for Voice Conversion", this function converts the
+%  Non-Parallel Data for Voice Conversion." This function converts the
 %  source input to the range of the target speaker
 %
 % Syntax: covF0 = covertF0HEQ(f0raw, srcMdl, tgtMdl)
@@ -15,7 +15,7 @@
 % Outputs:
 %   covf0: converted source F0 sequence, a N*1 vector
 %
-% Other m-files required: trainF0HEQ.m
+% Other m-files required: None
 %
 % Subfunctions: nearestBin
 %
@@ -23,12 +23,13 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 03/27/2017; Last revision: 04/03/2017
+% Created: 03/27/2017; Last revision: 04/23/2019
 % Revision log:
 %   03/27/2017: function creation, Guanlong Zhao
 %   03/28/2017: bug fixes, Guanlong Zhao
 %   04/01/2017: added source model, added outlier handling code, GZ
 %   04/03/2017: minor fix, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2017 Guanlong Zhao
 % 

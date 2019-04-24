@@ -5,7 +5,8 @@
 %
 % Inputs:
 %   utts: list of utts
-%   range: mfcc components used, default to 2:25
+%   range: feature dimensions used, default to 2:25
+%   feat: name of the speech feature to use, e.g., 'mfcc', 'mcep', etc.
 %
 % Outputs:
 %   uttGVs: GV list for all utts, n*d matrix, n is number of utts, d is
@@ -19,7 +20,7 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 04/28/2017; Last revision: 10/19/2018
+% Created: 04/28/2017; Last revision: 04/23/2019
 % Revision log:
 %   04/28/2017: function creation, Guanlong Zhao
 %   05/10/2017: added doc, GZ
@@ -27,6 +28,7 @@
 %   06/26/2017: fixed input parsing bug, GZ
 %   09/10/2017: added support for choosing features, GZ
 %   10/19/2018: update for GSB version, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2017 Guanlong Zhao
 % 

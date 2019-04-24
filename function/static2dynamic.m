@@ -1,13 +1,14 @@
-% static2dynamic: Transform the static MFCCs x to the dynamic version X = (x, dx);
-% The result of this function is the same as X = Wx, but it's faster and requires less memory.
+% static2dynamic: Transform the static MFCCs x to the dynamic version
+% X = (x, dx). The result of this function is the same as X = Wx, but it's
+% faster and requires less memory.
 %
 % Syntax: X = static2dynamic(x)
 %
-% Inputs:
-% 	x - a [D, T] MFCC matrix
+% Input:
+% 	x: a [D, T] MFCC matrix
 %
-% Outputs:
-% 	X - a [2D, T] (MFCC + Delta MFCC) matrix
+% Output:
+% 	X: a [2D, T] (MFCC + Delta MFCC) matrix
 %
 % Other m-files required: None
 %
@@ -17,11 +18,12 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: Oct. 2015; Last revision: 04/27/2017
+% Created: Oct. 2015; Last revision: 04/23/2019
 % Revision log:
 % 	11/19/2015: updated the function descriptions
 %	1/8/2016: updated the function descriptions
 %   04/27/2017: compatibility fix, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2015 Guanlong Zhao
 % 

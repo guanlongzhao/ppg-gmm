@@ -1,17 +1,14 @@
 % framePairingPPG: compute frame pairing given posteriorgram features. The
-% function will split the computation into smaller batches. This is the
-% memory efficient version of "acFramePairing", and slightly faster. The
-% outputs of the two functions are almost identical, except that the costs
-% are "double" in this function while being "single" in "acFramePairing"
+% function will split the computation into smaller batches.
 %
-% Syntax: [mapToSrc, mapToTgt, mapToSrcCost, mapToTgtCost] = framePairingPPG(srcPost, tgtPost, splitSize)
+% Syntax: [mapToSrc, mapToTgt, mapToSrcCost, mapToTgtCost] = framePairingPPG(srcPost, tgtPost, splitSize, verbose)
 %
 % Inputs:
 %   srcPost: D*T1 matrix
 %   tgtPost: D*T2 matrix
-%   splitSize: number of frames in a batch, default as 3000 frames, if the
+%   splitSize: number of frames in a batch, default to 3000 frames, if the
 %   input is less than 3000 frames then run in a single batch
-%   verbose: true | false, display some information, defaule to false
+%   verbose: true | false (*), display some information, defaule to false
 %
 % Outputs:
 %   mapToSrc: T2*1 vector, map source to the length of target
@@ -27,10 +24,11 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 05/10/2018; Last revision: 10/18/2018
+% Created: 05/10/2018; Last revision: 04/23/2019
 % Revision log:
 %   05/10/2018: function creation, Guanlong Zhao
 %   10/18/2018: ported to use in GSB, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2018 Guanlong Zhao
 % 

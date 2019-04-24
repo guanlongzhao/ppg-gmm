@@ -1,7 +1,6 @@
-% speechAnalysis: a refined speech analyser, it provides a well-defined
-% output struct that captures everything that's needed for doing my speech
-% processing research. In the future, this function will be expanded to a
-% class
+% speechAnalysis: a refined speech analyzer, it provides a well-defined
+% output struct that captures everything that's needed for the PPG-GMM accent
+% conversion system.
 %
 % Syntax:
 % Using default settings
@@ -12,14 +11,16 @@
 % Inputs:
 %   wav: wave form
 %   fs: sample frequency
+%
 %   [optional name-value pairs]:
 %   'Shift': analysis window frame shift, default to 5 (ms)
 %   'FFTsize': FFT size, default to 1024, resulting 513-dim spectrum
 %   'Text': orthographic transcription, text string, default to []
 %   'TextGrid': TextGrid object created by mPraat, default to []
-%   'NumMel': order of MFCCs, default to 25
-%   'PitchMode': 'default' | 'NDF' (*), 'NDF' only supports using 5ms as
-%   updating interval, I think it is better than 'default'
+%   'NumMel': order of MFCCs/MCEPs, default to 25
+%   'PitchMode': 'default' | 'NDF' (*), 'NDF' only supports using 5ms as the
+%   updating interval, I think it is better than 'default'; this option is
+%   valid only when you are using TANDEM-STRAIGHT
 %   'F0Floor': F0 search range lower bound, default to 50Hz
 %   'F0Ceil': F0 search range upper bound, default to 400Hz
 %   'Vocoder': 'WORLD' (*) | 'TandemSTRAIGHTmonolithicPackage012'
@@ -53,7 +54,7 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 04/19/2017; Last revision: 10/10/2018
+% Created: 04/19/2017; Last revision: 04/23/2019
 % Revision log:
 %   04/19/2017: function creation, Guanlong Zhao
 %   04/20/2017: function refinement, Guanlong Zhao
@@ -69,6 +70,7 @@
 %   10/02/2018: added options to control the F0 search range, GZ
 %   10/09/2018: default 'F0Ceil' to 400Hz, GZ
 %   10/10/2018: added support to 'WORLD' vocoder, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2017 Guanlong Zhao
 % 
@@ -91,7 +93,7 @@ function utt = speechAnalysis(wav, fs, varargin)
     defaultFFTsize = 1024;
     defaultText = ''; % orthographical transcription
     defaultTg = []; % forced alignment
-    defaultNmel = 25; % order of MFCCs
+    defaultNmel = 25; % order of MFCCs/MCEPs
     defaultVocoder = 'WORLD';
     
     addRequired(p, 'wav', @isnumeric);
@@ -246,7 +248,7 @@ function utt = speechAnalysis(wav, fs, varargin)
     words = tg2lab(p.Results.TextGrid, 'Shift', p.Results.Shift, 'Tmax',...
         size(ceps, 2), 'Mode', 'words');
 
-    % Assemable output
+    % Assemble output
     utt.wav = wav;
     utt.fs = fs;
     utt.text = p.Results.Text;

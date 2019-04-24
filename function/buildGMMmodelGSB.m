@@ -20,12 +20,12 @@
 %   than MIN_COVAR which has the value eps). With '0' no action is taken.
 %   'Epsilon': early stopping criteria, default is 1e-4
 %   'Verbose': 1 (*) | 0, set to '1' to get some printouts
-%   'SplitSize': number of frames in a batch, default as 3000 frames. if
+%   'SplitSize': number of frames in a batch, default to 3000 frames. if
 %   the input is less than 3000 frames then run in a single batch. This is
 %   used in the frame-pairing part to avoid out-of-memory issues.
 %   'MaxRetry': sometimes the GMM training will diverge, and this may
 %   happen for various reasons, e.g., the source and target speakers have
-%   drastically different amount of data; the model is too big for the
+%   drastically different amount of data; the model is too complex for the
 %   amount of data available; there are too many iterations, etc. This
 %   option allows the function to check after the training, if the model
 %   diverges, then it will retry with a new initialization. The default
@@ -44,11 +44,12 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 10/19/2018; Last revision: 10/24/2018
+% Created: 10/19/2018; Last revision: 04/23/2019
 % Revision log:
 %   10/19/2018: function creation, Guanlong Zhao
 %   10/23/2018: change to let the user specify the output path, GZ
 %   10/24/2018: fixed a bug and add validation for input type, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2018 Guanlong Zhao
 % 
@@ -90,8 +91,8 @@ function [modelPath, status] = buildGMMmodelGSB(srcSpkrFiles, tgtSpkrFiles, mode
     gmmOptions(3) = epsilon;
     gmmOptions(5) = isCheckCov;
     gmmOptions(14) = nIter;
-    splitSize = p.Results.SplitSize; % See doc string
-    maxRetry = p.Results.MaxRetry; % See doc string
+    splitSize = p.Results.SplitSize; % See docstring
+    maxRetry = p.Results.MaxRetry; % See docstring
     status = 0;
     
     % Load training data

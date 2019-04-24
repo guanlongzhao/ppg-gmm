@@ -5,6 +5,7 @@
 %
 % Inputs:
 %   tg: TextGrid object from mPraat
+%
 %   [optional name-value pairs]:
 %   'Shift': window frame shift, default to 1 (ms)
 %   'Tmax': the maximum number of frames allowed, default to
@@ -22,16 +23,13 @@
 %
 % Other m-files required: None
 %
-% Subfunctions: None
+% Subfunctions: normalizePhone, normalizePhoneArpaStyle, normalizeWord
 %
 % MAT-file required: None
 %
-% TODOs:
-%   1. Change to dynamic struct index, [opened 04/23/2017]
-%
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 04/18/2017; Last revision: 10/15/2018
+% Created: 04/18/2017; Last revision: 04/23/2019
 % Revision log:
 %   04/18/2017: function creation, Guanlong Zhao
 %   04/20/2017: function refinement, Guanlong Zhao
@@ -42,6 +40,7 @@
 %   10/03/2018: added support to output ARPABET style labels, GZ
 %   10/04/2018: fixed bug related to start and end time, GZ
 %   10/15/2018: update the silence detection part, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2017 Guanlong Zhao
 % 
@@ -134,7 +133,6 @@ function lab = tg2lab(tg, varargin)
     assert(issorted(lab.endTime), 'End time not monotonic');
     assert(sum(lab.startTime > lab.endTime) == 0, 'Start time larger than end time');
     
-    % TODO: change this to dynamic field indexing
     switch mode
     case 'words'
         lab.words = normalizedItems;

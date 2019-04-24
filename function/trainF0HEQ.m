@@ -1,6 +1,6 @@
-% trainF0HEQ: implement the histogram equlization postfiltering proposed
+% trainF0HEQ: implement the histogram equlization post-filtering proposed
 %  by Wu et al. in paper "Text-Independent F0 Transformation with
-%  Non-Parallel Date for Voice Conversion." This function learns the F0
+%  Non-Parallel Data for Voice Conversion." This function learns the F0
 %  parameters from one speaker
 %
 % Syntax: params = trainF0HEQ(f0raw[, vis])
@@ -28,13 +28,14 @@
 %
 % Author: Guanlong Zhao
 % Email: gzhao@tamu.edu
-% Created: 03/27/2017; Last revision: 10/15/2018
+% Created: 03/27/2017; Last revision: 04/23/2019
 % Revision log:
 %   03/27/2017: function creation, Guanlong Zhao
 %   03/28/2017: bug fixes, Guanlong Zhao
 %   04/01/2017: handel outliers differently, Guanlong Zhao
 %   09/07/2017: fixed a bug, Guanlong Zhao
 %   10/15/2018: treat everything outside of 2 stds (95%) as outlier, GZ
+%   04/23/2019: fix docs, GZ
 
 % Copyright 2017 Guanlong Zhao
 % 
@@ -62,10 +63,6 @@ function params = trainF0HEQ(f0raw, vis)
     f0_std = std(f0_pos);
     valid_idx = (f0_pos>(f0_mean-2*f0_std)) & (f0_pos<(f0_mean+2*f0_std));
     f0 = f0_pos(valid_idx);
-    
-    % simple thresholding, Titze, I.R. (1994). Principles of Voice Production, Prentice Hall (currently published by NCVS.org) (pp. 188)
-    % f0 = f0raw(f0raw>40 & f0raw<400);
-    
     
     % Build the histogram
     numBins = 100; % from the reference
