@@ -6,3 +6,5 @@
 test/data/src/cache/*
 test/data/tgt/cache/*
 test/data/temp/*
+dependency/kaldi-posteriorgram/steps
+dependency/kaldi-posteriorgram/utils
