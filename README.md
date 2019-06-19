@@ -92,4 +92,4 @@ Please cite the following paper if you used this system in your publication,
 - For codes under `function`, `script`, and `test`, they are released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) license.
 
 ## Contact
-Guanlong Zhao (gzhao@tamu.edu), Department of Computer Science and Engineering, Texas A&M University
+Guanlong Zhao (gzhao@tamu.edu) and Ricardo Gutierrez-Osuna (rgutier@tamu.edu), Department of Computer Science and Engineering, Texas A&M University
