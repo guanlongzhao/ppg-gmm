@@ -89,7 +89,7 @@ Please cite the following paper if you used this system in your publication,
 
 ## License
 - For everything under `dependency`, please refer to their respective license terms
-- For codes under `function`, `script`, and `test`, they are released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) license.
+- For codes under `function`, `script`, and `test`, they are released under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 ## Contact
 Guanlong Zhao (gzhao@tamu.edu) and Ricardo Gutierrez-Osuna (rgutier@tamu.edu), Department of Computer Science and Engineering, Texas A&M University
