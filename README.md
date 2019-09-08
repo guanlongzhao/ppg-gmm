@@ -1,5 +1,5 @@
 # PPG-GMM
-This repository hosts an open source implementation for the accent conversion system described in our submission to _IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)_, titled "Using Phonetic Posteriorgram Based Frame Pairing for Segmental Accent Conversion."
+This repository hosts an open source implementation for the accent conversion system described in our paper in _IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)_, titled "Using Phonetic Posteriorgram Based Frame Pairing for Segmental Accent Conversion."
 
 ## System requirement
 - OS: `Ubuntu 16.04` (tested and recommended) or `CentOS 7.5` (tested but you may run into some issues)
@@ -76,14 +76,20 @@ Add all dependencies (packages under `dependency`) and `function` to the Matlab 
 - Feel free to open an issue or initiate a pull request for any bugs you found
 
 ## Citation
-Please cite the following paper if you used this system in your publication,
+Please cite the following paper if you use this system in your publication,
 
 ```
 @article{zhao2019using,
   title={Using Phonetic Posteriorgram Based Frame Pairing for Segmental Accent Conversion},
   author={Zhao, Guanlong and Gutierrez-Osuna, Ricardo},
-  journal={Submitted to IEEE/ACM Transactions on Audio, Speech, and Language Processing},
-  year={2019}
+  journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+  year={2019},
+  month={Oct},
+  volume={27},
+  number={10},
+  pages={1649-1660},
+  doi={10.1109/TASLP.2019.2926754},
+  ISSN={2329-9290}
 }
 ```
 
