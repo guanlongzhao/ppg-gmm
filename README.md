@@ -57,7 +57,7 @@ Add all dependencies (packages under `dependency`) and `function` to the Matlab 
 - How to apply your own data? Read and modify `script/demo.m`
 
 ## Notes
-- In the paper, we used the [TANDEM-STRAIGHT](http://www.wakayama-u.ac.jp/~kawahara/STRAIGHTadv/index_e.html) vocoder (`TandemSTRAIGHTmonolithicPackage012`), and it is not open-source. Therefore, we cannot include that package here
+- In the paper, we used the [TANDEM-STRAIGHT](http://www.wakayama-u.ac.jp/~kawahara) vocoder (`TandemSTRAIGHTmonolithicPackage012`), and it is not open-source. Therefore, we cannot include that package here
     - Instead, we used [WORLD](https://github.com/mmorise/World) in this implementation
     - We kept the TANDEM-STRAIGHT related code in this repo in case you have access to TANDEM-STRAIGHT. Note that we used `MulticueF0v14` from [Legacy-STRAIGHT](https://github.com/HidekiKawahara/legacy_STRAIGHT) as the pitch tracker to improve the performance of TANDEM-STRAIGHT, as noted in the paper
 - We used the standard mean-and-variance normalization approach to convert the F0 curve in the paper. In this implementation, we used the histogram equalization post-filtering method proposed by Wu et al. in the paper "[Text-Independent F0 Transformation with Non-Parallel Data for Voice Conversion](https://www.isca-speech.org/archive/archive_papers/interspeech_2010/i10_1732.pdf)" (Interspeech'10) as the default F0 conversion method
